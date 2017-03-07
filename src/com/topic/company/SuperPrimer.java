@@ -22,7 +22,8 @@ public class SuperPrimer {
 		 // 寻找 n 最小的因子
 		 // 一个数最小的因子(排除 1 和 自身) 肯定是素数
 		 long p = -1;
-		 for(long i = 2; i < n; i++) {
+		 // 优化，如果 n 为超级素数， p * p <= n， 减少比较次数
+		 for(long i = 2; i * i < n; i++) {
 			 if(n % i == 0 ) {
 				 p = i;
 				 break;
