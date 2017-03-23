@@ -3,7 +3,12 @@ package com.topic.NiuKe;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
+/**
+ * N = x1x2x3x4..xn (xn=[0-9])
+ * 如果存在i使得 x1 * x2 * ... * xj = xj+1 * xj+2 * ... xn
+ * 则称N为平衡数
+ * @author elotoma
+ */
 public class BalanceNumber {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
