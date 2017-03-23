@@ -1,7 +1,13 @@
 package com.topic.company;
 import java.util.Scanner;
 
-
+/**
+ * 给出堆结构，求某些节点的高度
+ * 输入：a1b2c2d3e3f3(数结构：节点名|深度...)
+ *      ab(查询节点)
+ * 输出：3 2 (所查询节点的高度)
+ * @author elotoma
+ */
 public class TreeNodeDepth {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -11,21 +17,15 @@ public class TreeNodeDepth {
 		queryNodes = sc.nextLine();
 		sc.close();
 		
-		System.out.println(treeStr);
-		System.out.println(queryNodes);
-		
-		String[] nodes = queryNodes.split("");
 		int maxDepth = treeStr.charAt(treeStr.length() - 1);
-		int[] nodeDepth = new int[nodes.length];
-		
-		for(int i=0; i < nodes.length; i++) {
-			if(treeStr.indexOf(nodes[i]) > -1) {
-				nodeDepth[i] = maxDepth + 1 - treeStr.charAt(treeStr.indexOf(nodes[i]) + 1);
+		int qNodePostion = 0;
+		for(int i=0; i < queryNodes.length(); i++) {
+			qNodePostion = treeStr.indexOf(queryNodes.charAt(i));
+			if(qNodePostion > -1) {
+				System.out.print(maxDepth + 1 - (treeStr.charAt(qNodePostion + 1)) + " ");
 			}
 		}
-		for(int i = 0; i < nodes.length; i++) {
-			System.out.print(nodeDepth[i] + " ");
-		}
 	}
+	
 }
 
