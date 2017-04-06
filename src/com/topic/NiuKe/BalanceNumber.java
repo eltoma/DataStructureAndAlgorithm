@@ -61,18 +61,3 @@ public class BalanceNumber {
     	return false;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

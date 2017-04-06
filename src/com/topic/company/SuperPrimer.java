@@ -12,24 +12,28 @@ public class SuperPrimer {
 		 Scanner sin = new Scanner(System.in);
 		 
 		 long n =sin.nextLong(); 
-	
+		 
+		 System.out.println("-----------");
 		 //小于3时直接退出
 		 if(n < 3){
 			 System.out.println("NA");
 			 return;
 		 }
+		 System.out.println("2-----------");
 		 
 		 // 寻找 n 最小的因子
 		 // 一个数最小的因子(排除 1 和 自身) 肯定是素数
 		 long p = -1;
 		 // 优化，如果 n 为超级素数， p * p <= n， 减少比较次数
+		 System.out.println("4-----------");
 		 for(long i = 2; i * i < n; i++) {
+			 System.out.println("--" +i);
 			 if(n % i == 0 ) {
 				 p = i;
 				 break;
 			 }
 		 }
-		 
+		 System.out.println("3-----------");
 		 // 输入数值为素数, 直接退出
 		 if(p < 0) {
 			 System.out.println("NA");
@@ -52,4 +56,6 @@ public class SuperPrimer {
 		 
 		 System.out.println(p + " " + q);
 	}
+	
+	
 }
