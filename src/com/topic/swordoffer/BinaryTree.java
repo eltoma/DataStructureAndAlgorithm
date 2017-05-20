@@ -28,7 +28,12 @@ public class BinaryTree {
 		System.out.println("\n\n递归后序");
 		bTree.postorderTraversal(bTree.root);
 		System.out.println("\n非递归后序");
-		bTree.noRecPostorderTraversal(bTree.root);
+		String[] orders = bTree.noRecPostorderTraversal(bTree.root);
+
+		System.out.println("\n\n非递归遍历，一种方法实现所有遍历序：");
+		for (int i = 0; i < orders.length; i++) {
+			System.out.println(orders[i]);
+		}
 	}
 }
 
@@ -135,34 +140,46 @@ class BTree<E> {
 			}
 		}
 	}
-	public void noRecPostorderTraversal(Node<E> n) {
+	/**
+	 * 非递归遍历二叉树
+	 * @param n
+	 * @return 三种遍历结果的字符串数组 0 ：前   1:中  2：后
+	 */
+	public String[] noRecPostorderTraversal(Node<E> n) {
 		Node<E> cNode = n;
 		Stack<Node<E>> stack = new Stack<Node<E>>();
 		Stack<Boolean> visited = new Stack<Boolean>();
+		String[] order = {"前：","中：","后："};
 		while(cNode != null || !stack.isEmpty()) {
-			// 左子树节点循环入栈
+			// 第一次访问：左子树节点循环入栈
 			while(cNode != null) {
 				stack.push(cNode);
 				// 标记第一次访问
 				visited.push(false);
+				order[0] = order[0] + cNode.val + ",";
 				cNode = cNode.lNode;
 			}
-			// 右子树孩子循环出栈
+			// 第三次访问：如果是已经访问两次（visited == true），弹栈
 			while(!stack.isEmpty() && visited.peek()) {
 				visited.pop();
-				System.out.print(stack.pop().val + ", ");
+				Node node = stack.pop();
+				order[2] = order[2] + node.val+ ",";
+				System.out.print(node.val + ", ");
 			}
 			
-			// 到达叶子节点，开始出栈
+			// 第二次访问：转向右子树
 			if(!stack.isEmpty()) {
 				// 根节点先不出栈(访问)
 				cNode = stack.peek();
-				// 转向右子数
+				// 转向右子树
+				order[1] = order[1] + cNode.val+ ",";
 				cNode = cNode.rNode;
 				// 标记第二次访问
 				visited.pop();
 				visited.push(true);
 			}
 		}
+		
+		return order;
 	}
 }
