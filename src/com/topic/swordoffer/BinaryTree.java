@@ -13,7 +13,8 @@ import java.util.Stack;
  */
 public class BinaryTree {
 	public static void main(String[] args) {
-		Integer[] nodes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+		//Integer[] nodes = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+		Integer[] nodes = { 1, 2, 3, 4, 5, 6, 7, 8};
 		BTree<Integer> bTree = new BTree<Integer>(nodes);
 		System.out.println("µ›πÈ«∞–Ú:");
 		bTree.preorderTraversal(bTree.root);
