@@ -71,6 +71,8 @@ public class BinaryTree<E> {
 	 */
 	public void noRecPreorderTraversal(TreeNode<E> n) {
 		TreeNode<E> cNode = n;
+		String string = "";
+		string.indexOf("ss");
 		Stack<TreeNode<E>> stack = new Stack<TreeNode<E>>();
 		while(cNode != null || !stack.isEmpty()) {
 			// 一直向左并将沿途结点压入堆栈

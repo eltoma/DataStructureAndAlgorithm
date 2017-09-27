@@ -1,5 +1,7 @@
 package com.topic.swordoffer;
 
+import org.w3c.dom.Node;
+
 import com.topic.swordoffer.FindKthToTail.ListNode;
 /**
  * 算法列表：
@@ -11,10 +13,10 @@ public class List {
 	
 	// 单元测试
 	public static void main(String[] args) {
-		int[] listNodes1 = {1,3,5,7,9,};
+		int[] listNodes1 = {1};
 		int[] listNodes2 = {2,4,6,8,10};
 		ListNode list1 = buildList(listNodes1);
-		ListNode list2 = buildList(listNodes2);
+/*		ListNode list2 = buildList(listNodes2);
 		System.out.println("合并测试...");
 		System.out.println("list:");
 		showList(list1);
@@ -22,7 +24,11 @@ public class List {
 		showList(list2);
 		System.out.println("合并后：");
 		ListNode mergedList = merge(null, list2);
-		showList(mergedList);
+		showList(mergedList);*/
+		
+	
+		showList(list1);
+		showList(reverseList(null, 2));
 	}
 	
 	
@@ -52,27 +58,47 @@ public class List {
 	}
 	
 	public static void showList(ListNode head) {
-		System.out.print("{");
+	
 		while(head != null) {
-			System.out.printf("%2d ,",head.val);
+			System.out.printf("%2d -> ",head.val);
 			head = head.next;
 		}
-		System.out.println("}");
+		System.out.println();
 	}
 	
 	
     public static ListNode reverseList(ListNode head) {
     	ListNode preNode = null, 
-    			 curNode = head,
-    			 nextNode = null;;
+    			 curNode = head;
+    	
 		while(curNode != null) {
-			nextNode = curNode.next;
+			ListNode temp = curNode.next;
 			curNode.next = preNode;
 			
 			preNode = curNode;
-			curNode = nextNode;
+			curNode = temp;
 		}
     	return preNode;
+    }
+        
+    public static ListNode reverseList(ListNode head, int k) {
+    	
+    	ListNode preNode = null, 
+    			 curNode = head;
+    	
+		for(int i = 0; i < k && curNode != null ; i++) {
+			ListNode temp = curNode.next;
+			curNode.next = preNode;
+			
+			preNode = curNode;
+			curNode = temp;
+		}
+		if(curNode == null) {
+			return preNode;
+		}
+		
+		head.next = reverseList(curNode, k);
+		return preNode;
     }
     /**
      * 合并两个链表，递归方式

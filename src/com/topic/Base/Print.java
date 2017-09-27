@@ -10,10 +10,11 @@ public class Print {
 		}
 	}
 	
-	public static void showArr(int[][] a, int bitCnt){
+	public static void showArr(int[] a, int bitCnt){
 		for (int i = 0; i < a.length; i++) {
 			System.out.printf("%"+ bitCnt + "d",a[i]);
 		}
+		System.out.println();
 	}
 	
 	public static void println(String s) {
