@@ -1,9 +1,6 @@
 package com.topic.company;
 import static java.lang.Math.*;
-import static com.topic.Base.Print.*;
 
-
-import com.topic.sort.Base;
 /**
  * 小东所在公司要发年终奖，而小东恰好获得了最高福利，他要在公司年会上参与一个抽奖游戏，
  * 游戏在一个6*6的棋盘上进行，上面放着36个价值不等的礼物，每个小的棋盘上面放置着一个礼物，

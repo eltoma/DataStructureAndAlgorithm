@@ -1,4 +1,4 @@
-package com.topic.Base;
+package com.topic.base;
 
 public class Print {
 	public static void showMat(int[][] m, int bitCnt){

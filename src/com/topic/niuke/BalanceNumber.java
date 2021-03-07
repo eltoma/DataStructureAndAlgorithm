@@ -1,4 +1,4 @@
-package com.topic.NiuKe;
+package com.topic.niuke;
 
 import java.util.ArrayList;
 import java.util.Scanner;
