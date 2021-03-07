@@ -6,9 +6,7 @@ import java.util.List;
 
 /**
  * @author elto
- * @Project DataStructureAndAlgorithm
- * @Description: 分割回文字符春
- * @Company youku
+ * @Description: 分割回文字符串
  * @Create 2021/3/7 下午10:51
  */
 public class SplitBackText131 {
