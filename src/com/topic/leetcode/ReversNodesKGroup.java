@@ -31,7 +31,8 @@ public class ReversNodesKGroup {
         // 检查剩余链表是否k个节点
         ListNode curNode = head;
         for(int i = 0; i < k; i++) {
-            if(curNode == null) { // 不足k个，不反转直接返回
+            // 不足k个，不反转直接返回
+            if(curNode == null) {
                 return head;
             }
             curNode = curNode.next;

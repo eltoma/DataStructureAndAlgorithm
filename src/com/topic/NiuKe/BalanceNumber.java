@@ -5,14 +5,14 @@ import java.util.Scanner;
 
 /**
  * N = x1x2x3x4..xn (xn=[0-9])
- * 如果存在i使得 x1 * x2 * ... * xj = xj+1 * xj+2 * ... xn
- * 则称N为平衡数
+ * ???????i??? x1 * x2 * ... * xj = xj+1 * xj+2 * ... xn
+ * ???N??????
  * @author elotoma
  */
 public class BalanceNumber {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        while (in.hasNextInt()) {//注意while处理多个case
+        while (in.hasNextInt()) {//???while??????case
             int num = in.nextInt();
             String outString = isBalanceNumber(num) ? "YES" : "NO";
             System.out.println(outString);
@@ -21,7 +21,7 @@ public class BalanceNumber {
     }
     
     public static boolean isBalanceNumber(int number) {
-    	// 小于10的直接排除
+    	// С??10????????
     	if(number < 10) {
         	return false;
         }
@@ -30,12 +30,12 @@ public class BalanceNumber {
     	int zeroCount = 0;
     	int left = 1, right = 1;
         
-        // 拆分出数字的每一位(10分位)
+        // ???????????λ(10??λ)
         while( number > 0 ) {
         	alist.add(number % 10);
         	if(number % 10 == 0) {
         		zeroCount ++;
-        		// 有1个以上0的肯定是平衡树
+        		// ??1??????0???????????
         		if(zeroCount > 1) {
         			return true;
         		}
@@ -45,12 +45,12 @@ public class BalanceNumber {
         }
         
 
-        // 只有一个0的时候肯定不是平衡数
+        // ??????0????????????????
         if(zeroCount == 1) { return false; }
         
-        // 记录最大乘积
+        // ????????
         int MAX = right;
-        // 从右侧依次寻找平衡点，left^2 <= MAX
+        // ????????????????left^2 <= MAX
         for(int i = 0;  left * left  < MAX; i++) {
         	right = right / alist.get(i);
         	left *= alist.get(i);
